@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    padding: 15px 50px;
+}
+
+.dropdown{
+    display:flex;
+    padding-left: 10px;    
+}
+.shopsections{
+    display: flex;
+}
+.formsection{
+    display: flex;
+}
+.cart{
+    margin-left: 20px;
+}
+.navbar{
+    display: flex;
+    
+}
+.kids{
+    margin-right: 120px;
+}
+.logo img{
+    width: 150px;
+    height: 30px;
+}
+   
+@media screen and (max-width:500px){
+    .header{
+    
+        padding: 0;
+        height: 250px;
+        justify-content: center;
+    }
+    .dropdown{
+        padding: 10px 17px;
+        display: inline;
+       
+        
+    }
+    .logo {
+        margin: 0 auto;
+    
+    }
+    .search{
+        width: 400px;
+        margin: 10px 35px;
+        
+    }
+    .searchbtn{
+        margin-top: 10px;
+    }
+    .men{
+        margin-bottom: 10px;
+    }
+    .women{
+        margin-bottom: 10px;
+    }
+    .kids{
+        margin-bottom: 10px;
+    }
+    .signupbtn{
+        margin-left: 14px;
+        margin-bottom: 10px;
+        margin-right: 18px;
+    }
+    .cart{
+       margin: 6px 10px;
+    }
+    .shopsections{
+        margin-left: 120px;
+
+    }
+    .ml-3{
+        margin-right: 38px;
+    }
+    .formsection{
+        margin-left: 122px;
+        
+    }
+}
+    
