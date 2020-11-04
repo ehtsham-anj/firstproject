@@ -17,10 +17,10 @@ const Womendropdown = () => {
         </DropdownToggle>
       <DropdownMenu>
         <DropdownItem header>All Items</DropdownItem>
-        <Link to='/dresses'> <DropdownItem>Dresses</DropdownItem></Link>
-        <DropdownItem >Skirts</DropdownItem>
-        <DropdownItem> Shirt & Pants</DropdownItem>
-        <Link to="/clothing"><DropdownItem> Clothing</DropdownItem></Link>
+        <Link to='/dresses'> <DropdownItem>Jewelry</DropdownItem></Link>
+        <Link to='/blazers'><DropdownItem >Blazers</DropdownItem></Link>
+        <Link to ="womenjeans"><DropdownItem> Pants</DropdownItem></Link>
+        <Link to="/clothing"><DropdownItem> Tops</DropdownItem></Link>
       </DropdownMenu>
     </Dropdown>
     </div>

@@ -16,7 +16,8 @@ import  Link2  from './components/pages/womenpages/Clothing'
 import Babyboy from './components/pages/kidspages/Babyboy'
 import Infants from './components/pages/kidspages/Infants'
 import MySlider from './components/Slider'
-
+import Blazers from './components/pages/womenpages/Blazers'
+import Wjeans from './components/pages/womenpages/Wjeans'
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
  
 <Switch>
 <Route path="/" exact component={Home,MySlider}/>
+<Route path="/womenjeans" component={Wjeans}/>
+<Route path="/blazers" component={Blazers}/>
 <Route path="/clothing" component={Link2}/>
 <Route path="/Infants" component={Infants}/>
 <Route path="/babyboys" exact component={Babyboy}/>

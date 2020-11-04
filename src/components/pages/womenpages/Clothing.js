@@ -1,77 +1,76 @@
-  
 import React from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
-
 
 function Link2() {
     return (
         <div>
+            <h1 className="text-center text-danger my-5">Women Tops Shopping</h1>
          <Container fluid>
-           <Row>
+           <Row className="px-5 py-5">
             <Col>
-            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/453e6051-fba5-4941-9768-7fea762939e8/sportswear-af1-big-kids-pullover-hoodie-9s6PRW.jpg" width="100%" />
+             <img src= "https://slimages.macys.com/is/image/MCY/products/9/optimized/14889929_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+             Bar III
+             Tie-Neck Blouse
+                $34.99
         </div>
           </Col>
             <Col>
-            <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+            <img src= "https://slimages.macys.com/is/image/MCY/products/5/optimized/17748795_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+             Kasper
+             Ruffle-Front Blouse
+                $44.99
         </div>
                     </Col>
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= "https://slimages.macys.com/is/image/MCY/products/8/optimized/17556838_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+             Tommy Hilfiger
+             Ruffled Split-Neck Blouse
+                $37.50
         </div>
                     </Col>
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= "https://slimages.macys.com/is/image/MCY/products/2/optimized/15369422_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+            DKNY
+            Printed Split-Neck Logo Shirt
+                $27.93
         </div>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="px-5 py-5">
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= "https://slimages.macys.com/is/image/MCY/products/1/optimized/17887151_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
+             DKNY
+             Long-Sleeve V-Neck Top
                 $99.50
         </div>
                     </Col>
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= "https://slimages.macys.com/is/image/MCY/products/0/optimized/18106030_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+              Vince Camuto
+              Women's Long Sleeve Tie Neck Blouse
+                $79.50
         </div>
                     </Col>
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= " https://slimages.macys.com/is/image/MCY/products/6/optimized/17625276_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%"/>
          <div>
                 Charter Club
-                Plaid One-Button blazer
-                $99.50
+                Metallic-Print Cape Top
+                $69.50
         </div>
                     </Col>
                     <Col>
-                    <img src= "https://www.macys.com/shop/product/charter-club-plaid-one-button-blazer-created-for-macys?ID=11327155&CategoryID=188851" width="100%"/>
+                    <img src= "https://slimages.macys.com/is/image/MCY/products/6/optimized/17542386_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%"/>
          <div>
-                Charter Club
-                Plaid One-Button blazer
-                $99.50
+            Calvin Klein
+            Womens Ombré Plaid Shirt
+                $32.99
         </div>
                     </Col>
                 </Row>

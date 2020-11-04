@@ -7,7 +7,7 @@ function Infants() {
         <div>
             <h1 className="text-center text-danger my-5">Infant Shopping</h1>
             <Container fluid>
-                <Row>
+                <Row className="px-5 py-5">
                     <Col>
                         <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/i1-bdf349c5-4d1a-44c5-a986-d090b69f73db/baby-bodysuit-bib-and-booties-set-LmWvZK.jpg" width="100%" />
                         <div>
@@ -32,8 +32,8 @@ function Infants() {
                             $45.00
                         </div>
                     </Col>
-                </Row>
-                <Row>
+                </Row >
+                <Row className="px-5 py-5">
                     <Col>
                         <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/mmheqpeqkm5jrwmenyod/sportswear-tech-fleece-toddler-hoodie-and-pants-set-xH9XGq.jpg" width="100%" />
                         <div>
@@ -58,7 +58,7 @@ function Infants() {
                         </div>
                      </Col>
                      </Row>
-                    <Row>
+                    <Row className="px-5 py-5">
                     <Col>
                         <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/ef717fab-fe21-45f7-82ea-4f973eb4f8cf/toddler-top-and-leggings-set-prcwCT.jpg" width="100%" />
                         <div>
@@ -84,7 +84,7 @@ function Infants() {
                         </div>
                     </Col>
                     </Row>
-                    <Row>
+                    <Row className="px-5 py-5">
                     <Col>
                         <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/6ad2cc48-1412-469b-9939-e14f0bed2bd7/free-rn-5-baby-toddler-shoe-KNMzDG.jpg" width="100%" />
                         <div>

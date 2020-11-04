@@ -7,7 +7,7 @@ function Girlssection() {
         <div>
             <h1 className="text-center text-danger my-5 w-100 bg-blue"> Girls Shopping</h1>
             <Container fluid>
-                <Row>
+                <Row className="px-5 py-5">
                     <Col>
                         <img src="https://www.gap.com/webcontent/0019/264/889/cn19264889.jpg" width="100%" />
                         <div>
@@ -30,7 +30,7 @@ function Girlssection() {
                         </div>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="px-5 py-5">
                     <Col>
                         <img src="https://www.gap.com/webcontent/0018/782/372/cn18782372.jpg" width="100%" />
                         <div>
@@ -53,7 +53,7 @@ function Girlssection() {
                         </div>
                      </Col>
                      </Row>
-                    <Row>
+                    <Row className="px-5 py-5">
                     <Col>
                         <img src="https://www.gap.com/webcontent/0019/294/959/cn19294959.jpg" width="100%" />
                         <div>
@@ -76,7 +76,7 @@ function Girlssection() {
                         </div>
                     </Col>
                     </Row>
-                    <Row>
+                    <Row className="px-5 py-5">
                     <Col>
                         <img src="https://www.gap.com/webcontent/0019/003/635/cn19003635.jpg" width="100%" />
                         <div>
