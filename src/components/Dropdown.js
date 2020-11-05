@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu,Button, DropdownItem } from 'reactstrap';
 import './Dropdown.css'
 import{Link} from 'react-router-dom'
 import Kidsdropdown from './Kidsdropdown'
@@ -39,7 +39,8 @@ const MyDropdown = (props) => {
  <div className="formsection">
 <div><ModalRegister/></div>
 <div> <ModalSignIn/></div>
-<div className="ml-3 cart"><Link to="cart"><img src="cart1.png" alt="cart"></img></Link></div>
+<div className="ml-3 cart"><Link to="cart">
+<Button className="cartbtn " variant="outline-primary">Cart<img src="cart1.png" alt="cart"></img></Button></Link></div>
     </div>
     </div>
     </>
