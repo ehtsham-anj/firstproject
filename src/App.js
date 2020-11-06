@@ -18,6 +18,7 @@ import Infants from './components/pages/kidspages/Infants'
 import MySlider from './components/Slider'
 import Blazers from './components/pages/womenpages/Blazers'
 import Wjeans from './components/pages/womenpages/Wjeans'
+import Contact from './components/Contact'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 <Route path="/dresses" component={Dresses}/>
 <Route path="/babygirls" component={Girlssection}/>
  <Route path="/cart" component={Cart}/>
+ <Route path="/contact" exact component={Contact}/>
  </Switch>
     
     

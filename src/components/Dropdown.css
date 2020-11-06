@@ -68,7 +68,17 @@
     width: 100%;
     background-color: black;
     color: white;
-    text-align: center;
+    text-align: right;
+    padding: 0 60px;
+  }
+  .contact{
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+  }
+  .contact a{
+    text-decoration: none;
+    color: white;
   }
 
 

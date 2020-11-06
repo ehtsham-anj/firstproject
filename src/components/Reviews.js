@@ -1,5 +1,6 @@
 import React from 'react'
 import './Dropdown.css'
+import Footer from './Footer'
 
 const Reviews = () => {
     return (
@@ -57,9 +58,7 @@ const Reviews = () => {
   
   
         </div>
-        <div className="footer">
-  <p>Footer</p>
-</div>
+  <Footer/>
 
         </>
     )
