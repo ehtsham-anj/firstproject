@@ -1,82 +1,155 @@
 import React from 'react';
-import { Row, Container, Col } from 'react-bootstrap';
- 
+import { Row, Container, Col,Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
+
 function Shirts() {
     return (
         <div>
+            <h1 className="text-center text-danger my-5">Men Shirts</h1>
             <Container fluid>
-                <Row>
+                <Row className="px-5 py-5">
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/819hTThVSSL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/4/optimized/16490394_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%" />
                         <div>
-                        <b>Lacoste</b><br/>
-                            Mens Short Sleeve V-Neck Pima Cotton Jersey T-Shirt<br/>
-                            $34.65
+                        Sun + Stone
+                        Men's Check Shirt
+                        $22.00
                         </div>
+                     <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/91cLclFG8-L._AC_UL480_FMwebp_QL65_.jpg" Width="100%" />
+                         <img src="https://slimages.macys.com/is/image/MCY/products/2/optimized/16358772_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
                         <div>
-                            <b>Amazon Essentials</b><br/>
-                            Men's Regular-fit Long-Sleeve Stripe Oxford Shirt<br/>
-                            $8.40
+                        Club Room
+                        Men's Performance Stretch Plaid Shirt
+                        $45.00
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/71Bwaf1QPUL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/9/optimized/11480949_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
                         <div>
-                            <b>Gildan</b><br/>
-                            Men's Ultra Cotton Adult Long Sleeve T-Shirt, 2-Pack
-                            $12.23
+                        Club Room
+                        Men's Solid Stretch Oxford Cotton Shirt
+                        $37.00
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
+                    </Col>
+                </Row >
+                <Row className="px-5 py-5">
+                    <Col>
+                        <img src="https://slimages.macys.com/is/image/MCY/products/1/optimized/9681061_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
+                        <div>
+                        Club Room
+                        Men's Stretch Dot-Print Shirt                            
+                        $37.99
+                        </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/814COp5up3L._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/7/optimized/15964837_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%" />
                         <div>
-                            <b>Goodthreads</b><br/>
-                            Amazon Brand - Goodthreads Men's Slim-Fit Long-Sleeve Dobby Shirt
-                            $8.79
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
+                        Calvin Klein
+                        Men's Button-Up Shirt                           
+                        $47.00
+                        </div>          <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
+                        </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/91QeS8slkjL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/1/optimized/8789631_fpx.tif?op_sharpen=1&wid=661&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
                         <div>
-                            <b>Hanes</b><br/>
-                            Men's Tech 2.0 Short Sleeve T-Shirt
-                            $19.98
+                        Tommy Hilfiger
+                        Men's Maxwell Short-Sleeve                    
+                        $44.00
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
+                     </Col>
+                     </Row>
+                    <Row className="px-5 py-5">
+                    <Col>
+                        <img src="https://slimages.macys.com/is/image/MCY/products/7/optimized/8793357_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%" />
+                        <div>
+                        Tommy Hilfiger
+                        Men's Maxwell Short-Sleeve 
+                            $34.55
+                        </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/71KR0s8-vqL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/3/optimized/16941043_fpx.tif?op_sharpen=1&wid=354&hei=430&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
                         <div>
-                            <b>lexiart</b>
-                            Mens Fashion Athletic Hoodies Sport Sweatshirt Solid Color Fleece
-                            $2188
+                        Tommy Hilfiger
+                        Men's Custom-Fit Peter Solid Shirt
+                        $24.90
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/61pjj7DGsTL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/8/optimized/16940968_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%" />
                         <div>
-                            <b>Van Heusen</b><br/>
-                            Men's Dress Shirt Regular Fit Poplin Solid
-                            $22.99
+                        Tommy Hilfiger
+                        Men's Custom-Fit Peter Solid Shirt
+                        $24.93
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
+                    </Col>
+                    </Row>
+                    <Row className="px-5 py-5">
+                    <Col>
+                        <img src="https://slimages.macys.com/is/image/MCY/products/6/optimized/17647236_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
+                        <div>
+                        Calvin Klein
+                        Men's Birdseye 
+                        $24.93
+                        </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                     <Col>
-                        <img src="https://m.media-amazon.com/images/I/71Wh4jHpvDL._AC_UL480_FMwebp_QL65_.jpg" width="100%" />
+                        <img src="https://slimages.macys.com/is/image/MCY/products/6/optimized/17647236_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" width="100%" />
                         <div>
-                            <b>COOFANDY</b><br/>
-                            Men's Casual Cotton Long Sleeve Dress Shirt Plaid Collar Slim Fit
-                            $27.99
+                        Calvin Klein
+                        Men's Birdseye Button-Down
+                        $24.55
                         </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
+                    </Col>
+                    <Col>
+                        <img src="https://slimages.macys.com/is/image/MCY/products/2/optimized/16661902_fpx.tif?op_sharpen=1&wid=591&fit=fit,1&$filtersm$&fmt=webp" width="100%" />
+                        <div>
+                        Calvin Klein
+                        Short Sleeve Cotton Shirt
+                            $35.55
+                        </div>
+                        <Link to='/cart'>  <Button className="mt-3" variant="primary" >
+        Add to Cart
+      </Button></Link> 
                     </Col>
                 </Row>
             </Container>
- 
+
         </div>
     )
 }
- 
+
 export default Shirts;

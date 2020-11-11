@@ -16,7 +16,7 @@ function MySlider(){
       alt="First slide"
     />
     <Carousel.Caption>
-    <h1 className="bg">hello world</h1>
+    <h1 className="bg"  style={{marginBottom:500,}}>FEATURED PRODUCT</h1>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -27,7 +27,7 @@ function MySlider(){
     />
 
     <Carousel.Caption>
-  
+    <h1 className="text-danger" style={{marginBottom:500,}}>FEATURED PRODUCT</h1>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -38,7 +38,7 @@ function MySlider(){
     />
 
     <Carousel.Caption>
-     
+    <h1 className="text-warning"  style={{marginBottom:500,}}>FEATURED PRODUCT</h1>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

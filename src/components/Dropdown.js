@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu,Button, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu,Button, DropdownItem, CardText } from 'reactstrap';
 import './Dropdown.css'
 import{Link} from 'react-router-dom'
 import Kidsdropdown from './Kidsdropdown'
 import Womendropdown from './Womendropdown'
 import ModalRegister from './ModalRegister'
 import ModalSignIn from './ModalSignIn'
+import Cartbtn from './Cartbtn'
 
 const MyDropdown = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -39,8 +40,7 @@ const MyDropdown = (props) => {
  <div className="formsection">
 <div><ModalRegister/></div>
 <div> <ModalSignIn/></div>
-<div className="ml-3 cart"><Link to="cart">
-<Button className="cartbtn " variant="outline-primary">Cart<img src="cart1.png" alt="cart"></img></Button></Link></div>
+<div><Cartbtn/></div>
     </div>
     </div>
     </>

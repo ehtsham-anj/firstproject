@@ -21,9 +21,10 @@
     display: flex;
 }
 .cart{
-    margin-left: 20px;
+    margin-right: 20px;
    
 }
+ 
 .cart img{
    width: 20px;
    height: 20px;
@@ -43,18 +44,18 @@
     height: 30px;
 }
 .small-container{
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-bottom: 60px;
 }
-.col-4{
-    flex-basis: 25%;
+.col-3{
+    width: 100%;
     padding: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
-.col-4 img{
+.col-3 img{
     width: 100%;
     height: 100%;
 }
@@ -80,6 +81,9 @@
     text-decoration: none;
     color: white;
   }
+   .cart{
+
+  }
 
 
 
@@ -98,6 +102,7 @@
         padding: 0;
         height: 250px;
         justify-content: center;
+        
     }
     .dropdown{
         padding: 10px 17px;
@@ -109,14 +114,21 @@
         margin: 0 auto;
     
     }
-    .search{
-        width: 400px;
-        margin: 10px 35px;
-        
+    .searchcontainer{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .searchform{
+        width: 50%;
+        margin: 10px 45px;
+        display: inline-flex;
     }
     .searchbtn{
-        margin-top: 10px;
+        display: inline;
+        margin-top: -33px;
+        margin-left: 100%;
     }
+  
 
     .men{
         margin-bottom: 10px;
@@ -138,15 +150,22 @@
     
    }
     .shopsections{
-        margin-left: 120px;
+        margin-left:50px;
 
     }
     .ml-3{
         margin-right: 38px;
     }
     .formsection{
-        margin-left: 122px;
+        margin-left: 50px;
         
     }
+    .small-container{
+        width: 100%;
+    }
+  
+   
+   
 }
-    
+   
+
