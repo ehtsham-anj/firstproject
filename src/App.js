@@ -19,6 +19,8 @@ import MySlider from './components/Slider'
 import Blazers from './components/pages/womenpages/Blazers'
 import Wjeans from './components/pages/womenpages/Wjeans'
 import Contact from './components/Contact'
+import Checkout from './components/Checkout';
+import Payment from './components/Payment';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
  
 <Switch>
 <Route path="/" exact component={Home,MySlider}/>
+<Route path="/payment" component={Payment}/>
+<Route path="/checkout" component={Checkout}/>
 <Route path="/womenjeans" component={Wjeans}/>
 <Route path="/blazers" component={Blazers}/>
 <Route path="/clothing" component={Link2}/>
