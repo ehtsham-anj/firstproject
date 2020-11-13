@@ -6,13 +6,13 @@ import StripeCheckout from 'react-stripe-checkout'
 
 const Payment = () => {
     const handleToken=(Token)=>{
-
+        
     }
     return (
-        <div className="paymentContainer">
-            <h1  className="text-danger text-center">PAYMENT DETAILS</h1>
+        <div >
+            <h1 style={{marginLeft:66, marginTop:50}} className="text-danger" >PAYMENT DETAILS</h1>
            
-            <div className="stripeSection text-center ">
+            <div  style={{marginLeft:130 , marginTop:10}} className="stripeSection  ">
     <StripeCheckout
     stripeKey="pk_test_51HmlhFKczKqS8F7t7um6dlIX8DKWWMOxTFYnb4qbyoTGooKESYSQFp1Ia7Sxs6tKnLDRexagIcOoViB7ifjts3Cr0014MCovqw"
     token={handleToken}

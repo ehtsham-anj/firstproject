@@ -3,6 +3,7 @@ import './Dropdown.css'
 import {  Button,Form,FormGroup} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
+import Payment from './Payment'
 
 const Checkout = () => {
     // const handleToken=(Token)=>{
@@ -29,11 +30,14 @@ const Checkout = () => {
   <Form.Check className="mb-3" type="checkbox" label="Rember me" />
   <div style={{marginBottom:10}}><Link className="text-danger">Forget Password</Link></div>
   
-<Link to="/payment"> <Button  className="btnpadding mb-3" variant="success" type="Sign In">
+<Link > <Button  className="btnpadding mb-3 mt-3" variant="success" type="Sign In">
     Sign In
   </Button>
   </Link> 
 </Form>
+<div>
+    <Payment/>
+</div>
 {/* Sign in ends */}
 
 {/* <div className="stripeSection  ">
@@ -92,7 +96,7 @@ const Checkout = () => {
     <Form.Control type="Mobile No" placeholder="Mobile No" />
   </Form.Group>
   
-  <Button className="btnpadreg" variant="primary" type="Sign Up">
+  <Button className="btnpadreg mt-3" variant="primary" type="Sign Up">
     Sign Up
   </Button>
 </Form>

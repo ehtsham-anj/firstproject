@@ -3,7 +3,7 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar'
 import{BrowserRouter,Route,Switch} from 'react-router-dom'
-import Cart from './components/Cart';
+import Cart from './components/cart/Cart';
 import Home from'./components/Home'
 import Girlssection from'./components/pages/kidspages/Girlssection'
 import Dresses from './components/pages/womenpages/Dresses'
@@ -21,11 +21,15 @@ import Wjeans from './components/pages/womenpages/Wjeans'
 import Contact from './components/Contact'
 import Checkout from './components/Checkout';
 import Payment from './components/Payment';
+import {Provider} from 'react-redux';
+import store from './store';
+import {connect} from 'react-redux';
 
 
 function App() {
   return (
     <>
+    <Provider store={store}>
     <BrowserRouter>
    
 
@@ -53,7 +57,7 @@ function App() {
     
     
     </BrowserRouter>
-    
+    </Provider>
     </>
   );
 }

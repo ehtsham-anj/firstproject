@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu,Button, DropdownItem, CardText } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu,Button, DropdownItem } from 'reactstrap';
 import './Dropdown.css'
 import{Link} from 'react-router-dom'
 import Kidsdropdown from './Kidsdropdown'
 import Womendropdown from './Womendropdown'
 import ModalRegister from './ModalRegister'
 import ModalSignIn from './ModalSignIn'
-import Cartbtn from './Cartbtn'
+
+
+import {getNumbers} from '../actions/getAction'
+import {connect} from 'react-redux';
+import {Provider} from 'react-redux';
+import store from '../store'
+
+
+
 
 const MyDropdown = (props) => {
+
+
+console.log(props);
+useEffect(() => {
+ getNumbers();
+}, []);
+
+
+
+
+
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -40,11 +60,20 @@ const MyDropdown = (props) => {
  <div className="formsection">
 <div><ModalRegister/></div>
 <div> <ModalSignIn/></div>
-<div><Cartbtn/></div>
+<div className="ml-3 cart"><Link to="cart">
+<Button className="cartbtn " variant="outline-primary"> Cart <img src="cart1.png" alt="cart"></img>  <span> {props.cartProps.cartNumbers} </span> </Button></Link></div>
     </div>
     </div>
     </>
   );
 }
 
-export default MyDropdown;
+ 
+
+const mapStateToProps = state => ({
+  cartProps:state.cartState 
+})
+
+export default  connect (mapStateToProps, {getNumbers}) (MyDropdown);
+
+
