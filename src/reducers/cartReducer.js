@@ -92,6 +92,15 @@ const initialState = {
             numbers:0,
             inCart:false,
         },
+        menshoe1: {
+            name: " Men/Snicker    ",
+            tagName: 'menshoe1',
+            price: 150.00,
+            numbers:0,
+            inCart:false,
+            images:'/images/s3.jpg',
+            
+        },
        
         
 }

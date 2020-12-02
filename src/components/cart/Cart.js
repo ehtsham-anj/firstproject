@@ -18,6 +18,7 @@ import babyHat from './Cart Images/Image9.png'
 import babyToddlershoe1 from './Cart Images/Image10.png'
 import babyToddlerslide from './Cart Images/Image11.png'
 import babyToddlershoe2 from './Cart Images/Image12.png'
+import menshoe1 from './Cart Images/s3.jpg'
 
 
 
@@ -43,7 +44,7 @@ function Cart ({cartProps, productQuantity,clearProduct})  {
 
 
 
-const productImages = [babyBodysuit,toddlerTracksuit,babyFullzip,toddlerHoodie,toddlerCrew,kidsYellow,toddlerTop,toddlerGripper,babyHat,babyToddlershoe1,babyToddlerslide,babyToddlershoe2]
+const productImages = [babyBodysuit,toddlerTracksuit,babyFullzip,toddlerHoodie,toddlerCrew,kidsYellow,toddlerTop,toddlerGripper,babyHat,babyToddlershoe1,babyToddlerslide,babyToddlershoe2,menshoe1]
 
 
 	productsInCart = productsInCart.map((product, index) =>{
