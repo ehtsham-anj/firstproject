@@ -25,6 +25,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import {connect} from 'react-redux';
 import UserList from './components/UserList';
+import Login from './components/Login'
 
 
 
@@ -39,6 +40,7 @@ function App() {
  
 <Switch>
 <Route path="/" exact component={Home,MySlider}/>
+<Route path="/login" exact component={Login}/>
 <Route path = "/users" component = {UserList}/>
 <Route path="/payment" component={Payment}/>
 <Route path="/checkout" component={Checkout}/>

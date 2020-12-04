@@ -89,7 +89,7 @@ const productImages = [babyBodysuit,toddlerTracksuit,babyFullzip,toddlerHoodie,t
 	<h4 className="cartTotal"> $ { cartProps.cartCost},00</h4>
 </div>
 <div className="checkout"> 
-<Link to="/checkout"><button type="button" class="btn btn-primary btn-lg">Proceed To Checkout</button></Link>
+<Link to="/login"><button type="button" class="btn btn-primary btn-lg">Proceed To Checkout</button></Link>
 
 </div>
 

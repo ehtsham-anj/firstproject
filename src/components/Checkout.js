@@ -6,10 +6,20 @@ import StripeCheckout from 'react-stripe-checkout'
 import Payment from './Payment'
 import UserService from '../service copy/UserService'
 
+
+  
+
 class Checkout extends Component {
+  
+  
   constructor(props) {
+
+    
+
       super(props)
+      
     this.state = {
+      
         // step 2
         id: this.props.match.params.id,
         fullName:'',
@@ -23,6 +33,8 @@ class Checkout extends Component {
     this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
     this.saveOrUpdateUser = this.saveOrUpdateUser.bind(this);
   }
+
+  
   componentDidMount(){
 
     // step 4
@@ -50,11 +62,11 @@ class Checkout extends Component {
     // step 5
     if(this.state.id ='_add'){
         UserService.createUser(user ).then(res =>{
-            this.props.history.push('/users');
+            this.props.history.push('/login');
         });
     }else{
         UserService.updateUser(user, this.state.id).then( res => {
-            this.props.history.push('/users');
+            this.props.history.push('/login');
         });
     }
 }
@@ -84,33 +96,12 @@ changePhoneNoHandler= (event) => {
     render(){
     return (
         <div className="checkoutContainer">
-          <div className="row">
-              <div className="col-6" style={{borderRight:"double"}}>
-           
-           <Form style={{width:400}} >
-           <h1  className="text-danger">CHECK OUT</h1>
-  <Form.Group controlId="formBasicEmail" >
-  
-  </Form.Group>
-  <Form.Group controlId="formBasicEmail" >
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-  </Form.Group>
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Check className="mb-3" type="checkbox" label="Rember me" />
-  <div style={{marginBottom:10}}><Link className="text-danger">Forget Password</Link></div>
-  
-<Link to="/payment" > <Button  className="btnpadding mb-3 mt-3" variant="success" type="Sign In">
-    Sign In
-  </Button>
-  </Link> 
-</Form>
-<div>
+          <div >
+              <div >
+          
+{/* <div>
     <Payment/>
-</div>
+</div> */}
 {/* Sign in ends */}
 
 {/* <div className="stripeSection  ">
@@ -135,8 +126,8 @@ changePhoneNoHandler= (event) => {
 
 {/* Sign up start */}
 <div >
-<form style={{width:400, paddingLeft:60}} >
-    <h1  className="text-danger">REGISTRATION</h1>
+<form className="signupform" style={{width:400, paddingLeft:60}} >
+    <h1  className="text-danger text-center">REGISTRATION</h1>
   
     
                                         <div className = "form-group">
@@ -172,7 +163,7 @@ changePhoneNoHandler= (event) => {
                                        
 
                                    
-  <Button onClick={this.saveOrUpdateUser} className="btnpadreg mt-3" variant="primary" type="Sign Up">
+ <Button  onClick={this.saveOrUpdateUser} className="btnpadreg mt-3" variant="primary" type="Sign Up">
     Sign Up
   </Button>
 </form>
@@ -183,7 +174,13 @@ changePhoneNoHandler= (event) => {
 
 
 
+
+
+
+
+
         </div>
+
     )
 }
 }

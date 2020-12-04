@@ -9,7 +9,7 @@ const Payment = () => {
         
     }
     return (
-        <div >
+        <div className="paymentContainer" >
             <h1 style={{marginLeft:66, marginTop:50}} className="text-danger" >PAYMENT DETAILS</h1>
            
             <div  style={{marginLeft:130 , marginTop:10}} className="stripeSection  ">

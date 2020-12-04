@@ -87,6 +87,20 @@
       border-radius: 15px;
       
   }
+  .loginContainer{
+    width: 1200px;
+    margin: 0 auto;
+    background-color:lightgoldenrodyellow;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 15px;
+  }
+  .loginform{
+      margin: 0 auto;
+  }
+  .signupform{
+    margin: 0 auto;
+}
   .btnpadding{
 
       padding: 4px 166px;
