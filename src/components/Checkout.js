@@ -1,187 +1,290 @@
 import React,{ Component } from 'react'
 import './Dropdown.css'
-import {  Button,Form,FormGroup} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
-import StripeCheckout from 'react-stripe-checkout'
-import Payment from './Payment'
-import UserService from '../service copy/UserService'
+import AuthService from '../services/auth.service'
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { isEmail } from "validator";
+import {Button} from 'react-bootstrap'
 
 
-  
+const required = value => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
+};
+
+const vemail = value => {
+  if (!isEmail(value)) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This is not a valid email.
+      </div>
+    );
+  }
+};
+
+const vusername = value => {
+  if (value.length < 3 || value.length > 20) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The username must be between 3 and 20 characters.
+      </div>
+    );
+  }
+};
+
+
+const vpassword = value => {
+  if (value.length < 6 || value.length > 40) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between 6 and 40 characters.
+      </div>
+    );
+  }
+};
+// const vfullName = value => {
+//   if (value.length < 6 || value.length >20) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         The password must be between 6 and 20 characters.
+//       </div>
+//     );
+//   }
+// };
+// const vaddress = value => {
+//   if (value.length < 6 || value.length > 40) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         The password must be between 6 and 40 characters.
+//       </div>
+//     );
+//   }
+// };
+// const vphoneNo = value => {
+//   if (value.length < 6|| value.length > 30) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         The password must be between  and 30characters.
+//       </div>
+//     );
+//   }
+// };
 
 class Checkout extends Component {
   
   
   constructor(props) {
+    super(props);
 
-    
-
-      super(props)
+    this.handleRegister = this.handleRegister.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangefullName = this.onChangefullName.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeaddress = this.onChangeaddress.bind(this);
+    this.onChangephoneNo = this.onChangephoneNo.bind(this);
       
     this.state = {
       
         // step 2
-        id: this.props.match.params.id,
         fullName:'',
         userName:'',
-        emailAddress:'',
+        email:'',
         password:'',
         address:'',
-        phoneNo:''
+        phoneNo:'',
+        successful: false,
+        message: ""
     }
-    this.changeFullNameHandler = this.changeFullNameHandler.bind(this);
-    this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
-    this.saveOrUpdateUser = this.saveOrUpdateUser.bind(this);
+  
   }
 
-  
-  componentDidMount(){
+  onChangeUsername(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
 
-    // step 4
-    if(this.state.id === '_add'){
-        return
-    }else{
-        UserService.getUserById(this.state.id).then( (res) =>{
-            let user = res.data;
-            this.setState({fullName: user.fullName,
-                userName: user.userName,
-                emailAddress : user.emailAddress,
-                password:user.password,
-                address:user.address,
-                phoneNo:user.phoneNo
-            });
-        });
-    }        
-}
-  saveOrUpdateUser = (e) => {
+  onChangeEmail(e) {
+    this.setState({
+      email: e.target.value
+    });
+  }
+
+  onChangePassword(e) {
+    this.setState({
+      password: e.target.value
+    });
+  }
+  onChangefullName(e) {
+    this.setState({
+      fullName: e.target.value
+    });
+  }
+
+  onChangeaddress(e) {
+    this.setState({
+      address: e.target.value
+    });
+  }
+
+  onChangephoneNo(e) {
+    this.setState({
+      phoneNo: e.target.value
+    });
+  }
+
+  handleRegister(e) {
     e.preventDefault();
-    let user = {fullName: this.state.fullName, userName: this.state.userName, emailAddress: this.state.emailAddress,
-      password: this.state.password,address: this.state.address,phoneNo: this.state.phoneNo};
-    console.log('user => ' + JSON.stringify(user));
+    this.setState({
+      message: "",
+      successful: false
+    });
 
-    // step 5
-    if(this.state.id ='_add'){
-        UserService.createUser(user ).then(res =>{
-            this.props.history.push('/login');
-        });
-    }else{
-        UserService.updateUser(user, this.state.id).then( res => {
-            this.props.history.push('/login');
-        });
+    this.form.validateAll();
+
+    if (this.checkBtn.context._errors.length === 0) {
+      AuthService.register(
+        this.state.username,
+        this.state.email,
+        this.state.password,
+        this.state.fullName,
+        this.state.address,
+        this.state.phoneNo
+        ).then(
+          response => {
+            this.setState({
+              message: response.data.message,
+              successful: true
+            });
+          },
+          error => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+  
+            this.setState({
+              successful: false,
+              message: resMessage
+            });
+          }
+        );
+      }
     }
-}
-changeUserNameHandler= (event) => {
-  this.setState({userName: event.target.value});
-}
 
-changeFullNameHandler= (event) => {
-  this.setState({fullName: event.target.value});
-}
 
-changeEmailAddressHandler= (event) => {
-  this.setState({emailAddress: event.target.value});
-}
-changePasswordHandler= (event) => {
-  this.setState({password: event.target.value});
-}
-changeAddressHandler= (event) => {
-  this.setState({address: event.target.value});
-}
-changePhoneNoHandler= (event) => {
-  this.setState({phoneNo: event.target.value});
-}
-    // const handleToken=(Token)=>{
 
-    // }
+    
     render(){
     return (
-        <div className="checkoutContainer">
-          <div >
-              <div >
+        
           
-{/* <div>
-    <Payment/>
-</div> */}
-{/* Sign in ends */}
+              <div className="checkoutContainer" >
 
-{/* <div className="stripeSection  ">
-    <StripeCheckout
-    stripeKey="pk_test_51HmlhFKczKqS8F7t7um6dlIX8DKWWMOxTFYnb4qbyoTGooKESYSQFp1Ia7Sxs6tKnLDRexagIcOoViB7ifjts3Cr0014MCovqw"
-    token={handleToken}
-    billingAddress
-    shippingAddress
-    amout
-    name="All products"
-
-    >
-
-    </StripeCheckout>
-</div> */}
-
-</div>
-
-
-
-
-
-{/* Sign up start */}
 <div >
-<form className="signupform" style={{width:400, paddingLeft:60}} >
-    <h1  className="text-danger text-center">REGISTRATION</h1>
+<h1  className="text-danger text-center mt-5 mb-3">REGISTRATION</h1>
+<Form 
+ onSubmit={this.handleRegister}
+            ref={c => {
+              this.form = c;
+            }}
+       className="signupform" style={{width:400, paddingLeft:60}} >
   
-    
-                                        <div className = "form-group">
-                                            <label> FullName: </label>
-                                            <input placeholder="First Name" name="firstName" className="form-control" 
-                                                value={this.state.fullName} onChange={this.changeFullNameHandler}/>
-                                        </div>
-                                        <div className = "form-group">
-                                            <label> UserName: </label>
-                                            <input placeholder="UserName" name="lastName" className="form-control" 
-                                                value={this.state.userName} onChange={this.changeUserNameHandler}/>
-                                        </div>
-                                        <div className = "form-group">
-                                            <label> EmailAddress: </label>
-                                            <input placeholder="Email Address" name="emailId" className="form-control" 
-                                                value={this.state.emailAddress} onChange={this.changeEmailAddressHandler}/>
-                                        </div>
-                                        <div className = "form-group">
-                                            <label> Password: </label>
-                                            <input placeholder="Password" name="password" className="form-control" 
-                                                value={this.state.password} onChange={this.changePasswordHandler}/>
-                                        </div>
-                                        <div className = "form-group">
-                                            <label> Address: </label>
-                                            <input placeholder="Adress" name="address" className="form-control" 
-                                                value={this.state.address} onChange={this.changeAddressHandler}/>
-                                        </div>
-                                        <div className = "form-group">
-                                            <label> PhoneNo: </label>
-                                            <input placeholder="PhoneNo" name="password" className="form-control" 
-                                                value={this.state.phoneNo} onChange={this.changePhoneNoHandler}/>
-                                        </div>
+    {!this.state.successful && ( 
+      <div>                             
+        <div className = "form-group">
+        <label> FullName: </label>
+         <Input placeholder="First Name" name="firstName" className="form-control" 
+        value={this.state.fullName}
+        onChange={this.onChangefullName}
+        // validations={[required, vfullName]}
+        />
+         </div>
+        <div className = "form-group">
+        <label > UserName: </label>
+           <Input placeholder="UserName" name="lastName" className="form-control" 
+                       value={this.state.username}
+                       onChange={this.onChangeUsername}
+                       validations={[required, vusername]}/>
+       </div>
+  <div className = "form-group">
+          <label> EmailAddress: </label>
+       <Input placeholder="Email Address" name="emailId" className="form-control" 
+         value={this.state.email}
+         onChange={this.onChangeEmail}
+         validations={[required, vemail]}/>
+       </div>
+          <div className = "form-group">
+     <label> Password: </label>
+        <Input placeholder="Password" name="password" className="form-control" 
+            value={this.state.password}
+            onChange={this.onChangePassword}
+            validations={[required, vpassword]}/>
+      </div>
+     <div className = "form-group">
+  <label> Address: </label>
+      <Input placeholder="Adress" name="address" className="form-control" 
+        value={this.state.address}
+        onChange={this.onChangeaddress}
+        // validations={[required, vaddress]}
+        />
+         </div>
+         <div className = "form-group">
+         <label> PhoneNo: </label>
+        <Input placeholder="PhoneNo" name="password" className="form-control" 
+      value={this.state.phoneNo}
+      onChange={this.onChangephoneNo}
+      // validations={[required, vphoneNo]}
+      />
+                  </div>
                                        
 
-                                   
- <Button  onClick={this.saveOrUpdateUser} className="btnpadreg mt-3" variant="primary" type="Sign Up">
+                                       <div className="form-group">                                
+ <Button   className="btnpadreg mt-3" variant="primary" type="Sign Up">
     Sign Up
   </Button>
-</form>
+  </div>
+  </div>
+    
+    )}
+ {this.state.message && (
+              <div className="form-group">
+                <div
+                  className={
+                    this.state.successful
+                      ? "alert alert-success"
+                      : "alert alert-danger"
+                  }
+                  role="alert"
+                >
+                  {this.state.message}
+                </div>
+              </div>
+            )}
+            <CheckButton
+              style={{ display: "none" }}
+              ref={c => {
+                this.checkBtn = c;
+              }}
+            />
+            </Form>
 </div>
 </div>
 
-{/* Sign up end */}
 
 
 
 
-
-
-
-
-        </div>
-
-    )
+    );
 }
 }
 

@@ -1,39 +1,311 @@
-import React from 'react'
-import {  Button,Form,FormGroup} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import {Link} from "react-router-dom"
+import AuthService from "../services/auth.service";
 import './Dropdown.css'
-import UserService from '../service copy/UserService'
 
-const Login = () => {
+const required = value => {
+  if (!value) {
     return (
-        <div className="loginContainer">
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
+};
+
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+
+    this.state = {
+      username: "",
+      password: "",
+      loading: false,
+      message: ""
+    };
+  }
+
+  onChangeUsername(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
+
+  onChangePassword(e) {
+    this.setState({
+      password: e.target.value
+    });
+  }
+
+  handleLogin(e) {
+    e.preventDefault();
+
+    this.setState({
+      message: "",
+      loading: true
+    });
+
+    this.form.validateAll();
+
+    if (this.checkBtn.context._errors.length === 0) {
+      AuthService.login(this.state.username, this.state.password).then(
+        () => {
+          this.props.history.push("/payment");
+          window.location.reload();
+        },
+        error => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          this.setState({
+            loading: false,
+            message: resMessage
+          });
+        }
+      );
+    } else {
+      this.setState({
+        loading: false
+      });
+    }
+  }
+
+  render() {
+    return (
+      <div className="loginContainer">
+        <h1  className="text-danger text-center mt-5 mb-4">LOGIN</h1>
+        <div>
+         
           
-          <Form className="loginform" style={{width:400}} >
-           <h1  className="text-danger text-center ">LOGIN</h1>
-  <Form.Group controlId="formBasicEmail" >
-  
-  </Form.Group>
-  <Form.Group controlId="formBasicEmail" >
-    <Form.Label>Username</Form.Label>
-    <Form.Control type="username" placeholder="Username" />
-  </Form.Group>
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Check className="mb-3" type="checkbox" label="Rember me" />
-  <div style={{marginBottom:10}}><Link className="text-danger">Forget Password</Link></div>
-  
- <Button  className="btnpadding mb-3 mt-3" variant="success" type="Sign In">
-    Sign In
-  </Button>
- 
-</Form> 
-<div className="signuplink text-center mt-3">
-    <h3>Not a memebr <Link to="/checkout">Sign up Now</Link></h3>
-    </div>  
+
+          <Form className="loginform" style={{width:400}} 
+            onSubmit={this.handleLogin}
+            ref={c => {
+              this.form = c;
+            }}
+          >
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="username"
+                value={this.state.username}
+                onChange={this.onChangeUsername}
+                validations={[required]}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <Input
+                type="password"
+                className="form-control"
+                name="password"
+                value={this.state.password}
+                onChange={this.onChangePassword}
+                validations={[required]}
+              />
+            </div>
+            
+            <div className="form-group">
+            
+              <button
+                className="btn btn-success btn-block  mb-3 mt-3 btnpadding"  
+                disabled={this.state.loading}
+              >
+                {this.state.loading && (
+                  <span className="spinner-border spinner-border-sm"></span>
+                )}
+                <span>Login</span>
+              </button>
+            </div>
+
+            {this.state.message && (
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {this.state.message}
+                </div>
+              </div>
+            )}
+            <CheckButton
+              style={{ display: "none" }}
+              ref={c => {
+                this.checkBtn = c;
+              }}
+            />
+             <div className="text-center mt-3">
+             <h3>Not a memebr <Link to="/checkout">Sign up Now</Link></h3> 
+             </div>
+          </Form>
+          
         </div>
-    )
+      </div>
+    );
+  }
 }
 
-export default Login
+
+
+
+
+
+// import React, {Component} from 'react'
+// import {  Button} from 'react-bootstrap'
+// import {Link} from 'react-router-dom'
+// import './Dropdown.css'
+// import Form from "react-validation/build/form";
+// import Input from "react-validation/build/input";
+// import CheckButton from "react-validation/build/button";
+
+// import AuthService from "../services/auth.service";
+
+// const required = value => {
+//   if (!value) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         This field is required!
+//       </div>
+//     );
+//   }
+// };
+// class Login extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleLogin = this.handleLogin.bind(this);
+//     this.onChangeUsername = this.onChangeUsername.bind(this);
+//     this.onChangePassword = this.onChangePassword.bind(this);
+
+//     this.state = {
+//       username: "",
+//       password: "",
+//       loading: false,
+//       message: ""
+//     };
+//   }
+//   onChangeUsername(e) {
+//     this.setState({
+//       username: e.target.value
+//     });
+//   }
+
+//   onChangePassword(e) {
+//     this.setState({
+//       password: e.target.value
+//     });
+//   }
+
+//   handleLogin(e) {
+//     e.preventDefault();
+
+//     this.setState({
+//       message: "",
+//       loading: true
+//     });
+//     this.form.validateAll();
+
+//     if (this.checkBtn.context._errors.length === 0) {
+//       AuthService.login(this.state.username, this.state.password).then(
+//         () => {
+//           this.props.history.push("/profile");
+//           window.location.reload();
+//         },
+//         error => {
+//           const resMessage =
+//             (error.response &&
+//               error.response.data &&
+//               error.response.data.message) ||
+//             error.message ||
+//             error.toString();
+
+//           this.setState({
+//             loading: false,
+//             message: resMessage
+//           });
+//         }
+//       );
+//     } else {
+//       this.setState({
+//         loading: false
+//       });
+//     }
+//   }
+//   render() {
+//     return (
+//         <div className="loginContainer">
+//           <h1  className="text-danger text-center ">LOGIN</h1>
+//           <Form  onSubmit={this.handleLogin}
+//             ref={c => {
+//               this.form = c;
+//             }}
+//           className="loginform" style={{width:400}} >
+  
+//   <div className="form-group">
+//               <label htmlFor="username">Username</label>
+//               <Input
+//                 type="text"
+//                 className="form-control"
+//                 name="username"
+//                 value={this.state.username}
+//                 onChange={this.onChangeUsername}
+//                 validations={[required]}
+//               />
+//             </div>
+//             <div className="form-group">
+//               <label htmlFor="password">Password</label>
+//               <Input
+//                 type="password"
+//                 className="form-control"
+//                 name="password"
+//                 value={this.state.password}
+//                 onChange={this.onChangePassword}
+//                 validations={[required]}
+//               />
+//             </div>
+//   <Form.Check className="mb-3" type="checkbox" label="Rember me" />
+//   <div style={{marginBottom:10}}><Link className="text-danger">Forget Password</Link></div>
+//   <div className="form-group">
+  
+//  <Button  disabled={this.state.loading}
+//   className="btnpadding mb-3 mt-3" variant="success" type="Sign In">
+//     {this.state.loading && (
+//                   <span className="spinner-border spinner-border-sm"></span>
+//                 )}
+//                 <span>Sign In</span>
+//   </Button>
+//   </div>
+//   {this.state.message && (
+//               <div className="form-group">
+//                 <div className="alert alert-danger" role="alert">
+//                   {this.state.message}
+//                 </div>
+//               </div>
+//             )}
+//             <CheckButton
+//               style={{ display: "none" }}
+//               ref={c => {
+//                 this.checkBtn = c;
+//               }}
+//             />
+// </Form> 
+// <div className="signuplink text-center mt-3">
+//     <h3>Not a memebr <Link to="/checkout">Sign up Now</Link></h3>
+//     </div>  
+//         </div>
+        
+//     );
+// }
+// }
+// export default Login
+
+

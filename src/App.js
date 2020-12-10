@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar'
@@ -26,20 +26,31 @@ import store from './store';
 import {connect} from 'react-redux';
 import UserList from './components/UserList';
 import Login from './components/Login'
+import Profile from "./components/profile.component";
+import AuthService from "./services/auth.service";
 
-
-
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  logOut() {
+    AuthService.logout();
+  }
+  render(){
   return (
     <>
+    
     <Provider store={store}>
+      
     <BrowserRouter>
+    
    
 
  <Navbar/>
  
 <Switch>
 <Route path="/" exact component={Home,MySlider}/>
+<Route exact path="/profile" component={Profile} />
 <Route path="/login" exact component={Login}/>
 <Route path = "/users" component = {UserList}/>
 <Route path="/payment" component={Payment}/>
@@ -65,6 +76,7 @@ function App() {
     </Provider>
     </>
   );
+}
 }
 
 
