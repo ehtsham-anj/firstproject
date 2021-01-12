@@ -48,33 +48,33 @@ const vpassword = value => {
     );
   }
 };
-// const vfullName = value => {
-//   if (value.length < 6 || value.length >20) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The password must be between 6 and 20 characters.
-//       </div>
-//     );
-//   }
-// };
-// const vaddress = value => {
-//   if (value.length < 6 || value.length > 40) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The password must be between 6 and 40 characters.
-//       </div>
-//     );
-//   }
-// };
-// const vphoneNo = value => {
-//   if (value.length < 6|| value.length > 30) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The password must be between  and 30characters.
-//       </div>
-//     );
-//   }
-// };
+const vfullName = value => {
+  if (value.length < 6 || value.length >20) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between 6 and 20 characters.
+      </div>
+    );
+  }
+};
+const vaddress = value => {
+  if (value.length < 6 || value.length > 40) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between 6 and 40 characters.
+      </div>
+    );
+  }
+};
+const vphoneNo = value => {
+  if (value.length < 6|| value.length > 30) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between  and 30characters.
+      </div>
+    );
+  }
+};
 
 class Checkout extends Component {
   
@@ -191,7 +191,7 @@ class Checkout extends Component {
               <div className="checkoutContainer" >
 
 <div >
-<h1  className="text-danger text-center mt-5 mb-3">REGISTRATION</h1>
+<h1  className="text-danger text-center mt-3 mb-3">REGISTRATION</h1>
 <Form 
  onSubmit={this.handleRegister}
             ref={c => {
@@ -206,7 +206,7 @@ class Checkout extends Component {
          <Input placeholder="First Name" name="firstName" className="form-control" 
         value={this.state.fullName}
         onChange={this.onChangefullName}
-        // validations={[required, vfullName]}
+        validations={[required, vfullName]}
         />
          </div>
         <div className = "form-group">
@@ -235,7 +235,7 @@ class Checkout extends Component {
       <Input placeholder="Adress" name="address" className="form-control" 
         value={this.state.address}
         onChange={this.onChangeaddress}
-        // validations={[required, vaddress]}
+        validations={[required, vaddress]}
         />
          </div>
          <div className = "form-group">
@@ -243,7 +243,7 @@ class Checkout extends Component {
         <Input placeholder="PhoneNo" name="password" className="form-control" 
       value={this.state.phoneNo}
       onChange={this.onChangephoneNo}
-      // validations={[required, vphoneNo]}
+     
       />
                   </div>
                                        

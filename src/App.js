@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import './App.css';
+import {Link } from "react-router-dom"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar'
 import{BrowserRouter,Route,Switch} from 'react-router-dom'
@@ -27,30 +28,100 @@ import {connect} from 'react-redux';
 import UserList from './components/UserList';
 import Login from './components/Login'
 import Profile from "./components/profile.component";
-import AuthService from "./services/auth.service";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  logOut() {
-    AuthService.logout();
-  }
-  render(){
+import BoardAdmin from './components/board-admin.component'
+
+function App() {
+  // constructor(props) {
+  //   super(props);
+  //   this.logOut = this.logOut.bind(this);
+
+  //   this.state = {
+  //     currentUser: undefined,
+  //   };
+  // }
+  // componentDidMount() {
+  //   const user = AuthService.getCurrentUser();
+
+  //   if (user) {
+  //     this.setState({
+  //       currentUser: user,
+  //       showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
+  //       showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+  //     });
+  //   }
+  // }
+  // logOut() {
+  //   AuthService.logout();
+  // }
+  // render(){
+  //   const { currentUser , showAdminBoard }=this.state;
   return (
-    <>
+    <div>
+    
     
     <Provider store={store}>
       
     <BrowserRouter>
-    
+    {/* <nav className="navbar navbar-expand navbar-dark bg-dark"> */}
+       {/* <div>
+     {currentUser && (
+       <li className="nav-item">
+       <Link to={"/user"} className="nav-link">
+                  User
+                </Link>
+              </li>
+     )};
+       </div>
+     
+     <div>
+     {showAdminBoard && (
+              <li className="nav-item">
+                <Link to={"/admin"} className="nav-link">
+                  Admin Board
+                </Link>
+              </li>
+            )}
+     {currentUser ? (
+            <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="/login" className="nav-link" onClick={this.logOut}>
+                  LogOut
+                </a>
+              </li>
+     </div>
+      ) : (
+        <div className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link to={"/login"} className="nav-link">
+              Login
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to={"/checkout"} className="nav-link">
+              Sign Up
+            </Link>
+          </li>
+        </div>
+      )}
+     </div>
+     
+     </nav> */}
    
 
  <Navbar/>
  
 <Switch>
+  
 <Route path="/" exact component={Home,MySlider}/>
 <Route exact path="/profile" component={Profile} />
+<Route exact path="/admin" component={BoardAdmin} />
 <Route path="/login" exact component={Login}/>
 <Route path = "/users" component = {UserList}/>
 <Route path="/payment" component={Payment}/>
@@ -68,16 +139,18 @@ class App extends Component {
 <Route path="/dresses" component={Dresses}/>
 <Route path="/babygirls" component={Girlssection}/>
  <Route path="/cart" component={Cart}/>
+ 
  <Route path="/contact" exact component={Contact}/>
  </Switch>
     
     
     </BrowserRouter>
     </Provider>
-    </>
+    </div>
+    
   );
 }
-}
+
 
 
 

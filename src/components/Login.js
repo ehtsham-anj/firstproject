@@ -56,7 +56,7 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          this.props.history.push("/payment");
+          this.props.history.push("/profile");
           window.location.reload();
         },
         error => {
@@ -95,7 +95,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">UserName:</label>
               <Input
                 type="text"
                 className="form-control"
@@ -107,7 +107,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Password:</label>
               <Input
                 type="password"
                 className="form-control"
